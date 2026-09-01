@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "users": {
+      "title": "Users",
+      "description": "Registered teacher/user accounts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "User UID from Firebase Auth" },
+        "email": { "type": "string", "description": "User email address" },
+        "displayName": { "type": "string", "description": "Teacher display name" },
+        "photoURL": { "type": "string", "description": "Profile picture URL" },
+        "role": { "type": "string", "enum": ["teacher", "admin"], "description": "Role of the user" },
+        "createdAt": { "type": "string", "description": "Account creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Last update timestamp" }
+      },
+      "required": ["id", "email"]
+    },
+    "userData": {
+      "title": "User Data",
+      "description": "Synced state and schedule collections per teacher",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Associated user ID" },
+        "settings": { "type": "object", "description": "Teacher settings & preferences" },
+        "students": { "type": "array", "description": "Students list" },
+        "recurringSlots": { "type": "array", "description": "Weekly recurring timetable slots" },
+        "sessions": { "type": "array", "description": "Logged teaching sessions" },
+        "islamicBooks": { "type": "array", "description": "Islamic study books & texts" },
+        "quranGoals": { "type": "array", "description": "Quran personal goals" },
+        "werdLogs": { "type": "array", "description": "Daily wird and prayers logs" },
+        "curricula": { "type": "array", "description": "Curriculum plans" },
+        "prospectiveStudents": { "type": "array", "description": "Prospective students" },
+        "exams": { "type": "array", "description": "Student exams" },
+        "studentQuranHifz": { "type": "array", "description": "Student hifz tracking" },
+        "studentQuranRevision": { "type": "array", "description": "Student revision tracking" },
+        "completedJuz": { "type": "array", "description": "Completed juz records" },
+        "personalSchedule": { "type": "array", "description": "Personal routine appointments" },
+        "payments": { "type": "array", "description": "Financial and payment records" },
+        "notifications": { "type": "array", "description": "App notifications" },
+        "updatedAt": { "type": "string", "description": "Last sync ISO timestamp" }
+      },
+      "required": ["userId"]
+    }
+  }
+}
